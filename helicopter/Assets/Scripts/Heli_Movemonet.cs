@@ -25,7 +25,7 @@ public class Heli_Movemonet : MonoBehaviour
     void Update()
     {
         float xSpeed = _input.X * _moveSpeed; // 회축 입력값 받아오기
-        float zSpeed = _input.Y * _moveSpeed; // 종축 입력값 받아오기
+        float ySpeed = _input.Y * _moveSpeed; // 종축 입력값 받아오기
 
         // Z키를 누를때마다 시동이 켜지거나 꺼진다.
         if(_input.EngineOnOff)
@@ -37,7 +37,7 @@ public class Heli_Movemonet : MonoBehaviour
         if(propOn)
         {
             MainProp.transform.Rotate(0f, _propSpeed * Time.deltaTime, 0f);
-            _rigidbody.AddForce(0f, zSpeed, 0f);
+            _rigidbody.AddForce(0f, ySpeed, 0f);
             gameObject.transform.Rotate(0f, xSpeed, 0f);
         }
         else
